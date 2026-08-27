@@ -3,81 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قولف سيتي | الرئيسية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style> 
-        body { font-family: 'Tajawal', sans-serif; } 
-        .video-bg {
-            position: fixed;
-            right: 0; bottom: 0;
-            min-width: 100%; min-height: 100%;
-            z-index: -10;
-            filter: blur(8px) brightness(0.35);
-            object-fit: cover;
+    <title>قولف سيتي | Gulf City</title>
+    <!-- استدعاء خطوط أنيقة وتصميم عصري -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: #0f1016;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        header {
+            background: rgba(18, 19, 26, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #00bfff;
+            letter-spacing: 1px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: #00bfff;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .hero h1 span {
+            color: #00bfff;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .buttons-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary {
+            background-color: #00bfff;
+            color: #0f1016;
+        }
+        .btn-primary:hover {
+            background-color: #009acd;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(18, 19, 26, 0.9);
+            color: #777;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
-<body class="bg-black text-gray-200 min-h-screen overflow-x-hidden relative">
+<body>
 
-    <!-- خلفية الفيديو المتحركة والمغبشة (محدثة بخصائص التشغيل التلقائي الآمنة) -->
-    <video autoplay muted loop playsinline class="video-bg">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-city-traffic-at-night-4152-large.mp4" type="video/mp4">
-    </video>
+    <!-- القائمة العلوية -->
+    <header>
+        <div class="logo">GULF CITY</div>
+        <nav>
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="rules.html">القوانين</a>
+            <a href="team.html">الإدارة</a>
+            <a href="apply.html">التقديم</a>
+        </nav>
+    </header>
 
-    <!-- شريط التنقل العلوي وزر الـ 3 شخطات -->
-    <nav class="absolute top-0 w-full z-50 flex justify-between items-center p-6">
-        <span class="text-teal-400 font-black text-xl tracking-wider">GULF CITY</span>
-        <button onclick="toggleMenu()" class="text-white text-3xl focus:outline-none bg-black/50 p-2.5 rounded-xl border border-teal-500/30">
-            ☰
-        </button>
-    </nav>
-
-    <!-- القائمة الجانبية (3 شخطات) -->
-    <div id="sideMenu" class="fixed inset-y-0 right-0 w-72 bg-[#090f0f]/95 backdrop-blur-xl border-l border-teal-900/50 z-50 transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between shadow-2xl">
-        <div class="space-y-6">
-            <div class="flex justify-between items-center border-b border-teal-900/50 pb-4">
-                <span class="text-teal-400 font-black text-lg">قائمة خيارات السيرفر</span>
-                <button onclick="toggleMenu()" class="text-gray-400 hover:text-white text-xl">✕</button>
-            </div>
-            <div class="flex flex-col space-y-4 text-base font-semibold">
-                <a href="index.html" class="text-teal-400 hover:translate-x-1 transition">الرئيسية</a>
-                <a href="rules.html" class="text-gray-300 hover:text-teal-400 hover:translate-x-1 transition">قوانين ورول بلاي قولف سيتي</a>
-                <a href="apply.html" class="text-gray-300 hover:text-teal-400 hover:translate-x-1 transition">التقديمات (إدارة وعسكرية)</a>
-                <a href="team.html" class="text-gray-300 hover:text-teal-400 hover:translate-x-1 transition">المؤسسون والمبرمجون</a>
-                <a href="team.html#support" class="text-gray-300 hover:text-teal-400 hover:translate-x-1 transition">الدعم الفني وتواصل معنا</a>
-            </div>
+    <!-- الواجهة الرئيسية -->
+    <section class="hero">
+        <h1>مرحباً بك في مدينة <span>قولف سيتي</span></h1>
+        <p>الوجهة الأفضل لتجربة مميزة واحترافية. استعرض القوانين، تعرف على فريق الإدارة، أو قدم انضمامك إلينا الآن بكل سهولة.</p>
+        <div class="buttons-group">
+            <a href="apply.html" class="btn btn-primary"><i class="fas fa-file-alt"></i> قدم على الإدارة</a>
+            <a href="rules.html" class="btn btn-secondary"><i class="fas fa-book"></i> قوانين السيرفر</a>
         </div>
-        <div class="text-xs text-center text-gray-500 border-t border-teal-900/30 pt-4">
-            GULF CITY ROLEPLAY © 2026
-        </div>
-    </div>
+    </section>
 
-    <!-- المحتوى في المنتصف (الشعار الحقيقي والفيديو) -->
-    <div class="min-h-screen flex flex-col justify-center items-center text-center px-4 z-10 relative">
-        <!-- شعار السيرفر الحقيقي -->
-        <div class="mb-6 transform hover:scale-105 transition duration-500">
-            <img src="https://cdn.discordapp.com/attachments/1538738329221070948/1542117573372420206/New_Logo_Identity_Promotional_Material_Templates_Set_of_graphic_designs_il_20260819_094356_.png" alt="Gulf City Logo" class="w-40 h-40 md:w-52 md:h-52 object-contain drop-shadow-[0_0_30px_rgba(20,184,166,0.6)] mx-auto rounded-3xl border-2 border-teal-500/40 p-3 bg-black/70 backdrop-blur-md">
-        </div>
-        
-        <h1 class="text-4xl md:text-6xl font-black text-white mb-3 tracking-wider">قولف سيتي | GULF CITY</h1>
-        <p class="text-gray-300 text-sm md:text-base max-w-md mb-8 font-medium">أقوى تجربة رول بلاي واقعي، سيناريوهات حماسية، ومجتمع احترافي متكامل.</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 w-full max-w-xs">
-            <a href="https://discord.gg/g-c" target="_blank" class="bg-teal-600 hover:bg-teal-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-[0_0_20px_rgba(20,184,166,0.4)] transition text-center text-sm">
-                دخول السيرفر
-            </a>
-            <a href="rules.html" class="bg-black/60 border border-teal-500/40 hover:bg-teal-950/40 text-teal-300 font-bold py-3.5 px-6 rounded-xl transition text-center text-sm backdrop-blur-md">
-                قوانين الرول بلاي
-            </a>
-        </div>
-    </div>
+    <!-- التذييل -->
+    <footer>
+        جميع الحقوق محفوظة © قولف سيتي 2026
+    </footer>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('sideMenu');
-            menu.classList.toggle('translate-x-full');
-        }
-    </script>
 </body>
 </html>
+
